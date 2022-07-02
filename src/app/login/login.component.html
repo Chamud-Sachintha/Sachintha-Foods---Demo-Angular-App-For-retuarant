@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+    Signin
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+
+<p>Fill All The Fileds</p>
+
+<form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <mat-dialog-content>
+        <p>
+            <mat-form-field>
+                <input matInput placeholder="Username" [(ngModel)]="user.username"
+                    name="username" type="text" #username="ngModel" required>
+                <mat-error *ngIf="username.errors?.['required']">Username is Required.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Password" [(ngModel)]="user.password"
+                    name="password" type="text" #password="ngModel" required>
+                <mat-error *ngIf="password.errors?.['required']">Password is Required.</mat-error>
+            </mat-form-field>
+            <mat-checkbox [(ngModel)]="user.remember" name="remember">Remember me</mat-checkbox>
+        </p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <span class="flex-spacer"></span>
+        <button mat-button mat-dialog-close>Cancle</button>
+        <button mat-button type="submit" class="background-color: primary" [disabled]="loginForm.form.invalid">Submit</button>
+    </mat-dialog-actions>
+</form>

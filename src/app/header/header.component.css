@@ -1,0 +1,10 @@
+.container{
+    margin: 0;
+    background-color: blueviolet;
+    color: white;
+    padding: 50px 20px 50px 20px;
+}
+
+.active{
+    background-color: darkblue;
+}
